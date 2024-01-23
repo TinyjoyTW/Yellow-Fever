@@ -1,5 +1,9 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #cards-container {
@@ -8,6 +12,7 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
+  padding: 20px;
 }
 
 #cards-container img {
@@ -15,4 +20,21 @@
   height: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 1em 1em 1em;
+}
+
+.hiddenCard {
+  filter: opacity(0);
+  filter: contrast(0);
+}
+
+.revealCard {
+  filter: opacity(1);
+  filter: contrast(1);
 }

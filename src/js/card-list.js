@@ -37,3 +37,4 @@ const cardList = [
     picture2: "src/assets/pictures/YayanRuhian2.jpg",
   },
 ];
+

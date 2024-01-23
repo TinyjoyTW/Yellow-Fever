@@ -24,3 +24,4 @@ actorsData.forEach((actor) => {
       </tr>`;
   actorsTable.appendChild(tr);
 });
+
