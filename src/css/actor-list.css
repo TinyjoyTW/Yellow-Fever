@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 #actors {
   font-family: Arial, Helvetica, sans-serif;
@@ -8,9 +10,9 @@
 }
 
 #actors img {
-    width: 7em;
-    height: 7em;
-    object-fit: cover;
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
 }
 #actors td,
 #actors th {
@@ -39,7 +41,7 @@
 }
 
 #return-to-game-button {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   border: none;
   color: white;
   padding: 5px 25px;
@@ -48,7 +50,6 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-
 }
 
 .header {

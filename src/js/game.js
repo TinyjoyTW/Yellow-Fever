@@ -13,8 +13,12 @@ class Game {
   constructor() {
     this.moveCount = 0;
     this.cards = cardList;
-    // this.pickedCards = [];
+    this.timeRemaining = 120;
     this.renderCards();
+    // Select the timer element
+    this.timerElement = document.getElementById("timerDiv");
+    this.timerInterval; // Variable to store the timer interval ID
+    this.startTimer();
   }
 
   renderCards() {
@@ -42,6 +46,27 @@ class Game {
       cardsContainer.appendChild(l);
     });
   }
+
+  // Function to update the timer display
+  updateTimerDisplay() {
+    this.timerElement.textContent = `Time left: ${this.timeRemaining}`;
+  }
+
+  // Function to start the timer
+  startTimer() {
+    this.timerInterval = setInterval(() => {
+      this.timeRemaining--;
+      if (this.timeRemaining === 0) {
+        this.stopTimer();
+      }
+      this.updateTimerDisplay();
+    }, 1000); // Update every 1 second (1000 milliseconds)
+  }
+
+  // Function to stop the timer
+  stopTimer() {
+    clearInterval(this.timerInterval);
+  }
 }
 
 // It waits for the HTML to finish loading before executing the code here
@@ -60,9 +85,9 @@ document.querySelectorAll(".hiddenCard").forEach((card) => {
     card.classList.toggle("revealCard");
     moveCount++;
     const moveCountElement = document.getElementById("moves");
-    moveCountElement.textContent = `Movies: ${moveCount}`;
+    moveCountElement.textContent = `Moves: ${moveCount}`;
   });
 });
 
 // After flipping over two cards that don't match, the cards need to toggle back to hidden
-// If two cards match, they need to stay visible. 
+// If two cards match, they need to stay visible.
