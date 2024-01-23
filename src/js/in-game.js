@@ -11,11 +11,17 @@ const shuffleArray = (array) => {
 
 class Game {
   constructor(difficulty) {
+    this.difficulty = typeof difficulty === "number" ? difficulty : 1;
     this.moveCount = 0;
-    this.cards = cardList;
+    if (this.difficulty === 1) {
+    // slice cards into half
+    // here we use -1 to get the correct amout of cards which is 6
+      this.cards = cardList.slice(0, Math.floor(cardList.length / 2) - 1);
+    } else {
+      this.cards = cardList;
+    }
     this.timeRemaining = 120;
-    // 1 = easy, 2 = hard
-    this.difficulty = difficulty;
+
     this.renderCards();
     // Select the timer element
     this.timerElement = document.getElementById("timerDiv");
@@ -27,7 +33,7 @@ class Game {
     // Get the #cards-container element
     const cardsContainer = document.getElementById("cards-container");
     const list = [];
-  
+
     // Iterate over the list of cards
     // For each card we want to create two image elements
     this.cards.forEach((card) => {
@@ -51,6 +57,13 @@ class Game {
     list.forEach((l) => {
       cardsContainer.appendChild(l);
     });
+    
+    if (this.difficulty === 1) {
+      cardsContainer.classList.toggle('difficulty1');
+    } else if (this.difficulty === 2) {
+      cardsContainer.classList.toggle("difficulty2");
+    }
+
   }
 
   // Function to update the timer display
@@ -75,15 +88,12 @@ class Game {
   }
 }
 
-// It waits for the HTML to finish loading before executing the code here
-// window.onload = () => {
-//   new Game();
-// };
+// Built-in class to search for anything after "?" in the URL
+const urlParams = new URLSearchParams(window.location.search);
+// get 'difficulty' in the URL after the "?" 
+const difficulty = urlParams.get("difficulty");
 
-const game = new Game();
-
-// declaring moveCount outside the loops below
-let moveCount = 0;
+const game = new Game(Number(difficulty));
 
 document.querySelectorAll(".hiddenCard").forEach((card) => {
   card.addEventListener("click", () => {

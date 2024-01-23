@@ -8,11 +8,23 @@
 
 #cards-container {
   display: grid;
-  width: 100%;
+  width: 85%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
-  padding: 0 20px 0 20px;
+  margin: 0 auto;
+}
+
+#cards-container.difficulty1 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 60%;
+  margin: 0 auto;
+}
+
+#cards-container.difficulty2 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 #cards-container img {
