@@ -10,10 +10,12 @@ const shuffleArray = (array) => {
 };
 
 class Game {
-  constructor() {
+  constructor(difficulty) {
     this.moveCount = 0;
     this.cards = cardList;
     this.timeRemaining = 120;
+    // 1 = easy, 2 = hard
+    this.difficulty = difficulty;
     this.renderCards();
     // Select the timer element
     this.timerElement = document.getElementById("timerDiv");
@@ -25,13 +27,17 @@ class Game {
     // Get the #cards-container element
     const cardsContainer = document.getElementById("cards-container");
     const list = [];
+  
     // Iterate over the list of cards
     // For each card we want to create two image elements
     this.cards.forEach((card) => {
       const picture1 = document.createElement("img");
       const picture2 = document.createElement("img");
+      // Don't allow images to be dragged
       picture1.setAttribute("src", card.picture1);
+      picture1.setAttribute("draggable", false);
       picture2.setAttribute("src", card.picture2);
+      picture2.setAttribute("draggable", false);
       // Hide the cards using CSS
       picture1.className = "hiddenCard";
       picture2.className = "hiddenCard";
