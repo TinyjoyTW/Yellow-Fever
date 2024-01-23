@@ -2,32 +2,30 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Nanum Brush Script';
-  list-style-type: none
+  font-family: "Nanum Brush Script";
+  list-style-type: none;
 }
 
 body {
-    background-color: #999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
+  background-color: #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
 #logo {
-    width: 350px;
-    height: 350px;
+  width: 350px;
+  height: 350px;
 }
 
-#levelList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2em;
+#difficulty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
 }
-
-
 
 #startButton {
   display: inline-block;
@@ -38,16 +36,33 @@ body {
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-#startButton:hover {background-color: #3e8e41}
+#startButton:hover {
+  background-color: #3e8e41;
+}
+#low-grade:hover {
+  text-shadow: #fc0 1px 0 10px;
+}
+#high-grade:hover {
+  text-shadow: #fc0 1px 0 10px;
+}
 
 #startButton:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+/* #low-grade:active:hover, #high-grade:active:hover {
+  background-color: grey;
+} */
+
+#low-grade,
+#high-grade {
+  cursor: pointer;
 }

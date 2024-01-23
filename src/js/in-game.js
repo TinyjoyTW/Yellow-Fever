@@ -68,7 +68,7 @@ class Game {
 
   // Function to update the timer display
   updateTimerDisplay() {
-    this.timerElement.textContent = `Time left: ${this.timeRemaining}`;
+    this.timerElement.textContent = `Time left: ${this.timeRemaining}s`;
   }
 
   // Function to start the timer
@@ -107,3 +107,5 @@ document.querySelectorAll(".hiddenCard").forEach((card) => {
 
 // After flipping over two cards that don't match, the cards need to toggle back to hidden
 // If two cards match, they need to stay visible.
+// If time runs out, the player loses. Otherwise the player wins
+//
