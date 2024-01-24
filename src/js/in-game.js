@@ -45,8 +45,8 @@ class Game {
       picture2.setAttribute("src", card.picture2);
       picture2.setAttribute("draggable", false);
       // Hide the cards using CSS
-      picture1.className = "hiddenCard";
-      picture2.className = "hiddenCard";
+      picture1.className = "hidden-card";
+      picture2.className = "hidden-card";
       // Store created images into the list array
       list.push(picture1, picture2);
     });
@@ -63,6 +63,9 @@ class Game {
     } else if (this.difficulty === 2) {
       cardsContainer.classList.toggle("difficulty2");
     }
+
+    // add music
+    
 
   }
 
@@ -95,10 +98,10 @@ const difficulty = urlParams.get("difficulty");
 
 const game = new Game(Number(difficulty));
 
-document.querySelectorAll(".hiddenCard").forEach((card) => {
+document.querySelectorAll(".hidden-card").forEach((card) => {
   card.addEventListener("click", () => {
-    card.classList.toggle("hiddenCard");
-    card.classList.toggle("revealCard");
+    card.classList.toggle("hidden-card");
+    card.classList.toggle("reveal-card");
     moveCount++;
     const moveCountElement = document.getElementById("moves");
     moveCountElement.textContent = `Moves: ${moveCount}`;
@@ -106,6 +109,7 @@ document.querySelectorAll(".hiddenCard").forEach((card) => {
 });
 
 // After flipping over two cards that don't match, the cards need to toggle back to hidden
+
 // If two cards match, they need to stay visible.
 // If time runs out, the player loses. Otherwise the player wins
 //

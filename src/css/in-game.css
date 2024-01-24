@@ -36,17 +36,22 @@
 
 #header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 1em 1em 1em 1em;
 }
 
-.hiddenCard {
+.hidden-card {
   filter: opacity(0);
   filter: contrast(0);
 }
 
-.revealCard {
+.reveal-card {
   filter: opacity(1);
   filter: contrast(1);
+}
+
+#speaker-on-img {
+  width: 20px;
+  height: 20px;
 }
