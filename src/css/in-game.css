@@ -51,7 +51,8 @@
   filter: contrast(1);
 }
 
-#speaker-on-img {
+#speaker {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
