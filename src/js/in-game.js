@@ -12,7 +12,7 @@ const shuffleArray = (array) => {
 class Game {
   constructor(difficulty) {
     this.difficulty = typeof difficulty === "number" ? difficulty : 1;
-    // this.moveCount = 0;
+    shuffleArray(cardList);
     if (this.difficulty === 1) {
       // slice cards into half
       // here we use -1 to get the correct amout of cards which is 6
@@ -20,7 +20,7 @@ class Game {
     } else {
       this.cards = cardList;
     }
-    this.timeRemaining = 90;
+    this.timeRemaining = 60;
     this.moveCount = 0;
     this.renderCards();
     // Select the timer element
@@ -29,6 +29,11 @@ class Game {
     this.startTimer();
     this.flippedCards = [];
     this.remainingActors = this.cards.length;
+    this.leastMoves = Number(localStorage.getItem("leastMoves")) || 99;
+    // write highscore into DOM
+    document.getElementById(
+      "leastMoves"
+    ).textContent = `Least moves: ${this.leastMoves}`;
   }
 
   renderCards() {
@@ -87,11 +92,26 @@ class Game {
             this.flippedCards[0].classList[0] ===
             this.flippedCards[1].classList[0]
           ) {
-            // TODO win state
             this.remainingActors--;
 
+            this.flippedCards.forEach((flippedCard) => {
+              flippedCard.style.pointerEvents = "none";
+            });
+
             if (this.remainingActors === 0) {
-              alert("You've won!");
+              document.getElementById("win").showModal();
+              const audio = new Audio("src/assets/audio/success-trumpet.mp3");
+              audio.play();
+              backgroundAudio.volume = 0.3;
+              this.stopTimer();
+              if (this.moveCount < this.leastMoves) {
+                this.leastMoves = this.moveCount;
+
+                document.getElementById(
+                  "leastMoves"
+                ).textContent = `Least moves: ${this.leastMoves}`;
+                localStorage.setItem("leastMoves", this.leastMoves);
+              }
             }
           } else {
             // hide cards again when not the same actor, after a timeout
@@ -108,6 +128,12 @@ class Game {
         }
       });
     });
+
+    document.querySelectorAll(".play-again-button").forEach((button) =>
+      button.addEventListener("click", () => {
+        window.location = `start-game.html`;
+      })
+    );
   }
 
   // Function to update the timer display
@@ -121,6 +147,12 @@ class Game {
       this.timeRemaining--;
       if (this.timeRemaining === 0) {
         this.stopTimer();
+        document.getElementById("lose").showModal();
+        const audio = new Audio(
+          "src/assets/audio/dark souls-you are dead sound effect.mp3"
+        );
+        audio.play();
+        backgroundAudio.pause();
       }
       this.updateTimerDisplay();
     }, 1000); // Update every 1 second (1000 milliseconds)
@@ -139,13 +171,15 @@ const difficulty = urlParams.get("difficulty");
 const game = new Game(Number(difficulty));
 
 const speakerImg = document.getElementById("speaker");
-const audio = new Audio("src/assets/audio/life-of-a-wandering-wizard.mp3");
+const backgroundAudio = new Audio(
+  "src/assets/audio/life-of-a-wandering-wizard.mp3"
+);
 function playMusic() {
-  if (audio.paused) {
-    audio.play();
+  if (backgroundAudio.paused) {
+    backgroundAudio.play();
     document.getElementById("speaker").src = "src/assets/images/speaker-on.png";
   } else {
-    audio.pause();
+    backgroundAudio.pause();
     document.getElementById("speaker").src =
       "src/assets/images/speaker-off.png";
   }

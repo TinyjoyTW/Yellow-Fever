@@ -1,9 +1,12 @@
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 
 #cards-container {
@@ -55,4 +58,56 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+
+#win::backdrop {
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75;
+}
+
+#lose::backdrop {
+  background-color: black;
+  opacity: 0.8;
+}
+
+#lose {
+  background-color: black;
+}
+
+#you-died {
+  font-family: "Adobe Garamond Pro", sans-serif;
+  color: red;
+  font-style: italic;
+  animation: fade-in 8s linear, text-zoom 8s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-zoom {
+  0% {
+    font-size: 1em;
+  }
+  50% {
+    font-size: 1.5em;
+  }
+  100% {
+    font-size: 2em;
+  }
 }
