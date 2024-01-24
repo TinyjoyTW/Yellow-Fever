@@ -28,6 +28,7 @@ class Game {
     this.timerInterval; // Variable to store the timer interval ID
     this.startTimer();
     this.flippedCards = [];
+    this.remainingActors = this.cards.length;
   }
 
   renderCards() {
@@ -87,6 +88,11 @@ class Game {
             this.flippedCards[1].classList[0]
           ) {
             // TODO win state
+            this.remainingActors--;
+
+            if (this.remainingActors === 0) {
+              alert("You've won!");
+            }
           } else {
             // hide cards again when not the same actor, after a timeout
             const cardsToFlipBack = [...this.flippedCards];
