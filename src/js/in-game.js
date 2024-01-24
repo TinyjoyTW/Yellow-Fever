@@ -20,13 +20,14 @@ class Game {
     } else {
       this.cards = cardList;
     }
-    this.timeRemaining = 120;
+    this.timeRemaining = 90;
     this.moveCount = 0;
     this.renderCards();
     // Select the timer element
     this.timerElement = document.getElementById("timerDiv");
     this.timerInterval; // Variable to store the timer interval ID
     this.startTimer();
+    this.flippedCards = [];
   }
 
   renderCards() {
@@ -64,29 +65,40 @@ class Game {
       cardsContainer.classList.toggle("difficulty2");
     }
 
-    document.querySelectorAll(".hidden-card").forEach((card) => {
-      card.addEventListener("click", () => {
-        card.classList.toggle("hidden-card");
-        card.classList.toggle("reveal-card");
+    document.querySelectorAll(".hidden-card").forEach((pickedCard) => {
+      pickedCard.addEventListener("click", () => {
+        // toggle CSS to make card visible or hidden
+        pickedCard.classList.toggle("hidden-card");
+        pickedCard.classList.toggle("reveal-card");
+        // increase the move count
         this.moveCount++;
+        // and display it in the UI
         const moveCountElement = document.getElementById("moves");
         moveCountElement.textContent = `Moves: ${this.moveCount}`;
 
-        const revealedCards = document.querySelectorAll(".reveal-card");
-        // console.log(revealedCards);
+        // add the clicked card to a variable to remember it
+        this.flippedCards.push(pickedCard);
         // do we have two cards flipped?
-        if (revealedCards.length === 2) {
+        if (this.flippedCards.length === 2) {
           // now check for matching cards
-          // we check via CSS className
-          if (revealedCards[0].classList[0] === revealedCards[1].classList[0]) {
+          // we check via the first CSS classname of each card, which is the actor's name
+          if (
+            this.flippedCards[0].classList[0] ===
+            this.flippedCards[1].classList[0]
+          ) {
+            // TODO win state
           } else {
+            // hide cards again when not the same actor, after a timeout
+            const cardsToFlipBack = [...this.flippedCards];
             setTimeout(() => {
-              revealedCards.forEach((card) => {
+              cardsToFlipBack.forEach((card) => {
                 card.classList.toggle("reveal-card");
                 card.classList.toggle("hidden-card");
               });
-            }, 1000);
+            }, 600);
           }
+          // reset flipped cards
+          this.flippedCards = [];
         }
       });
     });
@@ -125,10 +137,11 @@ const audio = new Audio("src/assets/audio/life-of-a-wandering-wizard.mp3");
 function playMusic() {
   if (audio.paused) {
     audio.play();
-    document.getElementById('speaker').src = "src/assets/images/speaker-on.png";
+    document.getElementById("speaker").src = "src/assets/images/speaker-on.png";
   } else {
     audio.pause();
-    document.getElementById("speaker").src = "src/assets/images/speaker-off.png";
+    document.getElementById("speaker").src =
+      "src/assets/images/speaker-off.png";
   }
 }
 speakerImg.addEventListener("click", playMusic);
