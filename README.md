@@ -33,38 +33,24 @@ Yellow Fever
 ### start-game.js
 `startGame()`
 
-### in-game.js
+### Game.js
 ```
 Game()
-this. Difficulty;
-this.cards;
-this.timeRemaining;
-this.moveCount;
-this.flippedCards;
-this.remainingActors;
-this.leastMoves;
-this.initGame();
-shuffleCards();
-setupTimer();
-renderCards();
-createCardElement();
-setupClickHandlers();
-handleCardClick();
-updateTimerDisplay();
+shuffleArray();
+updateLeastMovesDisplay();
+renderActorPictures();
+onClickPicture();
+checkWinning();
+checkLosing();
 startTimer();
 stopTimer();
 ```
-```
-Card()
-this.name;
-this.picture1;
-this.picture2;
-```
-Other functions:
-```
-toggleAudio();
 
+### in-game.js
 ```
+playMusic();
+```
+
 ### HTML
 - start-game.html
 - in-game.html
