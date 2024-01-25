@@ -1,5 +1,3 @@
-# Yellow-Fever
-# Yellow-Fever
 # Project's name
 Yellow Fever
 
@@ -52,7 +50,7 @@ playMusic();
 ```
 
 ### HTML
-- start-game.html
+- index.html
 - in-game.html
 - actor-list.html
 
