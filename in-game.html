@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="src/css/in-game.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yellow Fever</title>
+  </head>
+  <body>
+    <dialog id="win">
+      <p>Congrats! You're an Asian expert now :D</p>
+      <button autofocus class="play-again-button">Play again</button>
+    </dialog>
+    <dialog id="lose">
+      <p id="you-died">You died. Ask Joy or Nindya for help :P</p>
+      <button autofocus class="play-again-button">Play again</button>
+    </dialog>
+    <header id="header">
+      <h1>Find two pictures of the same actor!</h1>
+      <img
+        id="speaker"
+        src="src/assets/images/speaker-off.png"
+        alt="speaker on"
+      />
+      <div>
+        <div id="leastMoves">Least moves: </div>
+        <br />
+        <div id="moves">Moves: 0</div>
+        <br />
+        <div id="timerDiv">Time left: 60s</div>
+      </div>
+    </header>
+    <div id="cards-container"></div>
+    <div id="end-game-container"></div>
+    <script src="src/js/card-list.js"></script>
+    <script src="src/js/in-game.js"></script>
+  </body>
+</html>

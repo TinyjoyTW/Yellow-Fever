@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+#actors {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#actors img {
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
+}
+#actors td,
+#actors th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#actors tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#actors tr:hover {
+  background-color: #ddd;
+}
+
+#actors th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  color: white;
+}
+
+#return-to-game-button {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
