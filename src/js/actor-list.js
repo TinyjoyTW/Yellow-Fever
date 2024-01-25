@@ -25,3 +25,7 @@ actorsData.forEach((actor) => {
   actorsTable.appendChild(tr);
 });
 
+const returnToGameBtn = document.getElementById("return-to-game-button");
+returnToGameBtn.addEventListener('click', ()=>{
+  window.location = `start-game.html`;
+});
