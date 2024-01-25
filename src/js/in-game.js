@@ -131,7 +131,12 @@ class Game {
 
     document.querySelectorAll(".play-again-button").forEach((button) =>
       button.addEventListener("click", () => {
-        window.location = `start-game.html`;
+        window.location = `actor-list.html`;
+      })
+    );
+    document.querySelectorAll(".actors-info").forEach((button) =>
+      button.addEventListener("click", () => {
+        window.location = `actor-list.html`;
       })
     );
   }

@@ -20,11 +20,24 @@ body {
   height: 350px;
 }
 
+h2 {
+  font-size: 2em;
+}
+
+/* #disclaimer {
+  font-size: 1.5em;
+  text-align: center;
+  width: 70%;
+} */
 #difficulty {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 2em;
+}
+
+#how-to-play {
+  font-size: 1.5em;
 }
 
 #startButton {
