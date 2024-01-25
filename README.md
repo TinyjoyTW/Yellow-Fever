@@ -1,5 +1,4 @@
-# Project's name
-Yellow Fever
+#Yellow Fever
 
 ## Description
 *Yellow Fever* is a dynamic memory game where players aim to find matching pairs of pictures featuring actors of East and Southeast Asian descent. The objective is to locate the correct pairs within a 60-second timeframe. Upon completing the game, players are presented with a list of the featured actors, offering a fun and engaging way to celebrate and recognize the talents of these individuals.
@@ -64,5 +63,5 @@ playMusic();
 
 - [Trello](https://trello.com/invite/b/kgMiQyBu/ATTI294588c0bb9a076ce9c7072a9d5359881A7AF2F5/yellow-fever)
 - [Github repository](https://github.com/TinyjoyTW/Yellow-Fever)
-- [Deployment](tinyjoytw.github.io/Yellow-Fever/)
+- [Deployment](https://tinyjoytw.github.io/Yellow-Fever/)
 - [Slides](https://docs.google.com/presentation/d/1XPszkLsdW7hwcN66kTH8ftCWKNXktcbyVoTxSJLVgsM/edit?usp=sharing)
