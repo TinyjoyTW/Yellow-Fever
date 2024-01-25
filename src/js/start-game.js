@@ -11,12 +11,14 @@ const highGrade = document.getElementById("high-grade");
 
 let difficulty = 1;
 // 1 = low-grade (easy), 2 = high-grade (high)
+
 lowGrade.addEventListener("click", () => {
   difficulty = 1;
   const lowGrade = document.getElementById("low-grade");
   lowGrade.style.backgroundColor = "grey";
   highGrade.style.removeProperty('background-color');
 });
+
 highGrade.addEventListener("click", () => {
   difficulty = 2;
   const highGrade = document.getElementById("high-grade");
