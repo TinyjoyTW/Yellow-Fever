@@ -14,7 +14,7 @@ class Game {
     this.remainingHiddenActors = this.actors.length;
     this.flippedPictures = [];
     this.renderActorPictures();
-    this.timeRemaining = 20; // seconds
+    this.timeRemaining = 60; // seconds
     this.moveCount = 0;
     this.leastMoves = Number(localStorage.getItem("leastMoves")) || 99;
     this.updateLeastMovesDisplay();
