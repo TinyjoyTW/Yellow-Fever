@@ -53,7 +53,7 @@ playMusic();
 - in-game.html
 - actor-list.html
 
-## States y States Transitions
+## States
 1. Start-game
 2. In-game
 3. End-game
