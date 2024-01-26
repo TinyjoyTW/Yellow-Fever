@@ -27,5 +27,5 @@ actorsData.forEach((actor) => {
 
 const returnToGameBtn = document.getElementById("return-to-game-button");
 returnToGameBtn.addEventListener('click', ()=>{
-  window.location = `start-game.html`;
+  window.location = `index.html`;
 });
