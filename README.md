@@ -1,4 +1,4 @@
-#Yellow Fever
+# Yellow Fever
 
 ## Description
 *Yellow Fever* is a dynamic memory game where players aim to find matching pairs of pictures featuring actors of East and Southeast Asian descent. The objective is to locate the correct pairs within a 60-second timeframe. Upon completing the game, players are presented with a list of the featured actors, offering a fun and engaging way to celebrate and recognize the talents of these individuals.

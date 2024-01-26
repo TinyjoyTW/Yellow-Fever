@@ -14,7 +14,7 @@ class Game {
     this.remainingHiddenActors = this.actors.length;
     this.flippedPictures = [];
     this.renderActorPictures();
-    this.timeRemaining = 60; // seconds
+    this.timeRemaining = 20; // seconds
     this.moveCount = 0;
     this.leastMoves = Number(localStorage.getItem("leastMoves")) || 99;
     this.updateLeastMovesDisplay();
@@ -34,8 +34,8 @@ class Game {
     const picturesContainer = document.getElementById("pictures-container");
     const list = [];
 
-    // Iterate over the list of cards
-    // For each card we want to create two image elements
+    // Iterate over the list of actors
+    // For each actor we want to create two image elements
     this.actors.forEach((actor) => {
       const picture1 = document.createElement("img");
       const picture2 = document.createElement("img");
@@ -70,9 +70,9 @@ class Game {
     });
 
     document.querySelectorAll(".play-again-button").forEach((button) =>
-      // event listener to go back to start-game.html
+      // event listener to go back to index.html
       button.addEventListener("click", () => {
-        window.location = `start-game.html`;
+        window.location = `index.html`;
       })
     );
 
